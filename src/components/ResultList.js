@@ -6,13 +6,13 @@ function ResultList(props) {
     <table className="table">
     <thead className="thead-dark">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Picture</th>
-        <th scope="col">Address</th>
-        <th scope="col">Email</th>
-        <th scope="col">Age</th>
-        <th scope="col">Phone</th>
+        <th scope="col" style={{cursor: "default"}}>#</th>
+        <th scope="col" style={{cursor: "default"}} onClick={() => props.sort()}>Name</th>
+        <th scope="col" style={{cursor: "default"}}>Picture</th>
+        <th scope="col" style={{cursor: "default"}}>Address</th>
+        <th scope="col" style={{cursor: "default"}}>Email</th>
+        <th scope="col" style={{cursor: "default"}}>Age</th>
+        <th scope="col" style={{cursor: "default"}}>Phone</th>
       </tr>
    </thead>
       <tbody>
@@ -29,16 +29,6 @@ function ResultList(props) {
         ))}
      </tbody>
     </table>
-    /* 
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-  </tbody>
-*/
   );
 }
 
