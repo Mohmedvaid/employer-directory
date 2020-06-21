@@ -7,8 +7,8 @@ function ResultList(props) {
     <thead className="thead-dark">
       <tr>
         <th scope="col" style={{cursor: "default"}}>#</th>
-        <th scope="col" style={{cursor: "default"}} onClick={() => props.sort()}>First Name</th>
-        <th scope="col" style={{cursor: "default"}}>Last Name</th>
+        <th scope="col" style={{cursor: "default"}} onClick={() => props.sortFirst()}>First Name</th>
+        <th scope="col" style={{cursor: "default"}} onClick={() => props.sortLast()}>Last Name</th>
         <th scope="col" style={{cursor: "default"}}>Picture</th>
         <th scope="col" style={{cursor: "default"}}>Address</th>
         <th scope="col" style={{cursor: "default"}}>Email</th>
