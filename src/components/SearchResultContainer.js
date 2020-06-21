@@ -93,13 +93,19 @@ class Employee extends Component {
     })
   }
 
-  filterCity(results){
+  filterCity(city, results){
 
-    results.map(result=>{
-      return 
+    let cityFilterResults = results.filter(result=>{
+      if(city !==result.location.city){
+        return results
+      }
     })
-
+    this.setState({ results: cityFilterResults})
   }
+
+  handleClick = event => {
+    this.filterCity(event.target.innerHTML, this.state.results)
+  };
 
   searchEmployee = () => {
     API.search()
@@ -114,6 +120,7 @@ class Employee extends Component {
     <div >
       <FilterBox
       results = {this.state.results}
+      filter= {this.handleClick}
       />
       <ResultList 
       results = {this.state.results} 

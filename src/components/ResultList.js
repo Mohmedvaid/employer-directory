@@ -23,7 +23,7 @@ function ResultList(props) {
             <td>{result.name.first} </td>
             <td>{result.name.last} </td>
             <td><img alt={result.name.first+" "+ result.name.last +"profile image"} src={result.picture.thumbnail}/> </td>
-            <td>{result.location.street.number+" "+ result.location.street.name+"\n"+result.location.city+", "+result.location.country} </td>
+            <td>{result.location.street.number+" "+ result.location.street.name+", "+result.location.city+", "+result.location.country} </td>
             <td>{result.email} </td>
             <td>{result.dob.age} </td>
             <td>{result.cell} </td>

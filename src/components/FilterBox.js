@@ -9,12 +9,11 @@ function FilterBox(props) {
   </button>
   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
     {props.results.map((result, i)=>(
-         <button key={i} className="dropdown-item" href="#">{result.location.city}</button>
+         <button key={i} className="dropdown-item" onClick={props.filter} >{result.location.city}</button>
     ))}
     
   </div>
 </div>
-
 
   )
 }
