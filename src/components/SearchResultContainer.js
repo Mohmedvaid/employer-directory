@@ -9,13 +9,10 @@ class Employee extends Component {
     results: []
   };
 
-  // logres() {
-  //   console.log(this.searchEmployee())
-  // }
-
   // When this component mounts, search for all employees
   componentDidMount() {
-    this.searchEmployee()
+    this.searchEmployee();
+    // this.display();
   }
 
 
@@ -97,9 +94,11 @@ class Employee extends Component {
 
     let cityFilterResults = results.filter(result=>{
       if(city !==result.location.city){
-        return results
+         result.visible = false;
       }
+      return result;
     })
+    console.log(cityFilterResults)
     this.setState({ results: cityFilterResults})
   }
 
@@ -109,11 +108,26 @@ class Employee extends Component {
 
   searchEmployee = () => {
     API.search()
-      .then(res => this.setState({
-        results: res.results
-      }))
+      .then(res => {
+        res.results.forEach(result => {
+          result.visible = true
+        });
+        this.setState({
+          results: res.results
+        })
+      })
       .catch(err => console.log(err));
   };
+
+  display(){
+    let newResults= this.state.results.filter(result=>{
+      if(result.visible === true){
+        return result;
+      }
+    })
+    console.log(newResults)
+    return newResults;
+  }
 
   render() {
     return ( 
@@ -123,7 +137,7 @@ class Employee extends Component {
       filter= {this.handleClick}
       />
       <ResultList 
-      results = {this.state.results} 
+      results = {this.display()} 
       sortFirst = {() => this.sortByFirstName(this.state.results)}
       sortLast = {() => this.sortByLastName(this.state.results)}
       
