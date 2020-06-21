@@ -16,50 +16,41 @@ class Employee extends Component {
     this.searchEmployee()
   }
 
-  // test(){
-  //   console.log("Test Executed")
-  // }
 
   sortByName(results) {
-    let names = results.map(result=>{
-      return result.name.first
-    })
-    console.log("NAMES")
-    console.log(names)
-    console.log("Ends")
-    let switching = true;
-    let i = 0;
-    let shouldSwitch
 
-    while (switching) {
-      switching = false;
-      let x, y;
-      for (i = 0; i < names.length-1; i++) {
-         shouldSwitch = false;
+    let switching, i, x, y, shouldSwitch;
 
-        // Fetch 2 elements that need to be compared 
-        x = names[0];
-        y = names[i + 1];
+  switching = true;
+  
+  while (switching) {
 
-        // Check if 2 rows need to be switched 
-        if (x.toLowerCase() > y.toLowerCase()) {
-          // If yes, mark Switch as needed and break loop 
-          shouldSwitch = true;
-          break;
-        }
-      }
-      if (shouldSwitch) {
-        var temp = names[i];
-        names[i] = names[i+1];
-        names[i+1] = temp;
-        // Function to switch rows and mark switch as completed 
-        switching = true;
+    switching = false;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 0; i < (results.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = results[i].name.first[0];
+      y = results[i + 1].name.first[0]
+      //check if the two rows should switch place:
+      if (x.toLowerCase() > y.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
       }
     }
-    
-    for(let j=0; j<names.length; j++){
-      results[j].name.first = names[0]
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      let temp = results[i]
+      results[i] = results[i+1]
+      results[i+1]= temp
+      switching = true;
     }
+  }
 
     this.setState({results: results})
   }
