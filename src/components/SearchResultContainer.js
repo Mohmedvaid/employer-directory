@@ -5,6 +5,7 @@ import ClearBtn from "./ClearFilters"
 import API from "../utils/API";
 
 
+
 class Employee extends Component {
   state = {
     results: []
@@ -144,6 +145,7 @@ class Employee extends Component {
   render() {
     return ( 
     <div >
+      <div className="act-buttons">
       <FilterBox
       results = {this.state.results}
       filter= {this.handleClick}
@@ -151,6 +153,7 @@ class Employee extends Component {
       <ClearBtn
       clear = {()=>this.clearFilter()}
       />
+      </div>
       <ResultList 
       results = {this.display()} 
       sortFirst = {() => this.sortByFirstName(this.state.results)}

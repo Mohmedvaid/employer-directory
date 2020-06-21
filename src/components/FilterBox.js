@@ -3,8 +3,8 @@ import React from "react";
 function FilterBox(props) {
   return (
 
-<div className="dropdown">
-  <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div className="dropdown btn-filter">
+  <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter By City
   </button>
   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">

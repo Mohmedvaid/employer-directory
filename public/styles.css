@@ -1,0 +1,17 @@
+.act-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-clear, .btn-filter{
+    margin: 20px;
+}
+
+.table{
+    margin: 20px;
+    border: solid black;
+}
+td{
+    /* word-break:break-all; */
+}
