@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import ResultList from "./ResultList";
+import FilterBox from "./FilterBox";
 import API from "../utils/API";
+
 
 class Employee extends Component {
   state = {
@@ -91,6 +93,14 @@ class Employee extends Component {
     })
   }
 
+  filterCity(results){
+
+    results.map(result=>{
+      return 
+    })
+
+  }
+
   searchEmployee = () => {
     API.search()
       .then(res => this.setState({
@@ -102,6 +112,9 @@ class Employee extends Component {
   render() {
     return ( 
     <div >
+      <FilterBox
+      results = {this.state.results}
+      />
       <ResultList 
       results = {this.state.results} 
       sortFirst = {() => this.sortByFirstName(this.state.results)}
