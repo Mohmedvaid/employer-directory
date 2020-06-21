@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import ResultList from "./ResultList";
 import FilterBox from "./FilterBox";
+import ClearBtn from "./ClearFilters"
 import API from "../utils/API";
 
 
@@ -96,6 +97,9 @@ class Employee extends Component {
       if(city !==result.location.city){
          result.visible = false;
       }
+      else{
+        result.visible = true;
+      }
       return result;
     })
     console.log(cityFilterResults)
@@ -128,6 +132,14 @@ class Employee extends Component {
     console.log(newResults)
     return newResults;
   }
+  clearFilter(){
+    console.log(`Clear was hit`)
+    let resetResults = this.state.results.map( result=>{
+      result.visible = true;
+      return result;
+    })
+    this.setState({results: resetResults})
+  }
 
   render() {
     return ( 
@@ -135,6 +147,9 @@ class Employee extends Component {
       <FilterBox
       results = {this.state.results}
       filter= {this.handleClick}
+      />
+      <ClearBtn
+      clear = {()=>this.clearFilter()}
       />
       <ResultList 
       results = {this.display()} 
