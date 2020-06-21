@@ -145,6 +145,7 @@ class Employee extends Component {
   render() {
     return ( 
     <div >
+      <div className="heading">Employee Directory</div>
       <div className="act-buttons">
       <FilterBox
       results = {this.state.results}

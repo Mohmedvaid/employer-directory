@@ -9,9 +9,13 @@
 }
 
 .table{
-    margin: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     border: solid black;
 }
-td{
-    /* word-break:break-all; */
+.heading{
+    text-align: center;
+    font-size: 50px;
+    font-family: Impact, Charcoal, sans-serif;
+    letter-spacing: 3px;
 }
